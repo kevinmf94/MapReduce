@@ -20,6 +20,6 @@ public class Word {
 	
 	@Override
 	public String toString() {
-		return String.format("%s : %d\n", word, count);
+		return String.format("(%s:%d)", word, count);
 	}
 }
