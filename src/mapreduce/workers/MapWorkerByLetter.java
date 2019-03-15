@@ -14,8 +14,7 @@ public class MapWorkerByLetter extends MapWorker {
 		for(String line : getLines()) {
 			for(String word : line.split(" ")) {
 				for(char letter : word.toCharArray()) {
-					word = word.toLowerCase().replace("\r", "");
-					result.add(new Word(String.valueOf(letter), 1));
+					result.add(new Word(String.valueOf(letter).toLowerCase(), 1));
 				}
 			}
 		}

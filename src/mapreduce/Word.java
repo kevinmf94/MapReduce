@@ -1,5 +1,8 @@
 package mapreduce;
 
+/**
+ * Class represents a word with the number of repeats
+ */
 public class Word {
 	private String word;
 	private int count;

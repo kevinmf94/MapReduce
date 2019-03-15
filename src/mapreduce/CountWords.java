@@ -3,12 +3,12 @@ package mapreduce;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class CountWords {
-	
 	
 	private List<String> files;
 	private Map<String, Integer> mapsResults;
@@ -39,12 +39,9 @@ public class CountWords {
 					}
 				}
 				
-				int checksum = 0;
 				for (String word : mapsResults.keySet()) {
-					checksum += mapsResults.get(word);
 					System.out.println(word+" : "+mapsResults.get(word));
 				}
-				System.out.println("Checksum: "+checksum);
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -53,5 +50,18 @@ public class CountWords {
 		}
 		
 		return result;
+	}
+	
+	public static void main(String[] args) {
+		List<String> files = new ArrayList<>();
+		for(int i = 0; i < args.length; i++) {
+			files.add(args[i]);
+		}
+		
+		long actual = System.currentTimeMillis();
+		CountWords count = new CountWords(files);
+		System.out.println(count.execute());
+		long fin = System.currentTimeMillis();
+		System.out.println("Time: "+(fin-actual));
 	}
 }
